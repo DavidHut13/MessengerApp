@@ -1,5 +1,5 @@
 .DrawerWrapper{
     width:75%;
-    height:94vh;
-    border:1px solid black;
+    display:flex;
+    justify-content: center;
 }

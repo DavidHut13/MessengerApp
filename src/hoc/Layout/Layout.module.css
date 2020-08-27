@@ -1,4 +1,7 @@
 .LayoutWrapper{
     display:flex;
-    justify-content: center;
+    align-items: stretch;
+    box-sizing: border-box;
+    height:93.5vh;
 }
+

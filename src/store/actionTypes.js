@@ -1,0 +1,4 @@
+export const NEW_MESSAGE = 'NEW_MESSAGE'
+export const DELETE_MESSAGE = 'DELETE_MESSAGE'
+export const FIND_MESSAGE = 'FIND_MESSAGE'
+export const TOGGLE_MODAL = 'TOGGLE_MODAL'

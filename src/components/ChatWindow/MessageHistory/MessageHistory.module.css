@@ -1,0 +1,15 @@
+.MessageHistoryWrapper{
+    height:93%;
+    width:100%;
+}
+
+.MessageBubble{
+    border:none;
+    border-radius: 15px;
+    padding:5px 15px 5px 15px;
+    margin-left:10px;
+    display:inline-block;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+}

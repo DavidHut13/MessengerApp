@@ -1,11 +1,14 @@
 import React, {Component} from 'react'
-import classes from './Messages.module.css'
+import classes from './ChatWindow.module.css'
+import MessageHistory from './MessageHistory/MessageHistory'
+import CreateMessage from './CreateMessage/CreateMessage'
 
 class Messages extends Component {
     render() {
         return (
-            <div className={classes.MessagesWrapper}>
-
+            <div className={classes.ChatWindowWrapper}>
+                <MessageHistory/>
+                <CreateMessage/>
             </div>
         )
     }
