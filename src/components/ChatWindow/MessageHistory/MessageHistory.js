@@ -5,9 +5,10 @@ import { connect } from 'react-redux'
 
 class MessageHistory extends Component {
    render() {
-       const messageHist = this.props.message.map((msg,index) => (
-        <div>
-            <p className={classes.MessageBubble} key={index}>{msg}</p>
+       console.log(this.props.messageHistory)
+       const messageHist = this.props.messageHistory.map( msg => (
+        <div key={msg.id}>
+            <p className={classes.MessageBubble} >{msg.message}</p>
         </div>
        ))
     return (

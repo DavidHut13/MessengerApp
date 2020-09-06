@@ -4,22 +4,6 @@ import * as actions from '../../../store/actions'
 import { connect } from 'react-redux'
 
 class CreateMessage extends Component {
-    ws = new WebSocket('ws://localhost:8765')
-    componentDidMount() {
-        
-        console.log('connecting')
-        this.ws.onopen = () => {
-            console.log('Connected')
-        }
-        this.ws.onerror = (error) => {
-            console.log(error)
-        }
-        this.ws.addEventListener('message', function (event) {
-            console.log('Message from server ', event.data);
-        });
-    }
-
-    
     state = {
         message: '',
         sender: 'David'
@@ -33,14 +17,13 @@ class CreateMessage extends Component {
         if(this.state.message) {
             this.props.onAddMessage(this.state.message)
             try {
-                this.ws.send(this.state.message)
+                this.props.websocket.send(this.state.message)
                 this.setState({message:""})
             }
             catch (error) {
                 console.log(error)
             }
         }
-        this.ws.send('David')
     }
  render() {
      
