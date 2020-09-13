@@ -29,8 +29,8 @@ class Messages extends Component {
       
         return (
             <div className={classes.ChatWindowWrapper}>
-                <MessageHistory  messageHistory={this.state.chatLog} websocket={this.ws}/>
-                <CreateMessage  websocket={this.ws}/>
+                <MessageHistory messageHistory={this.state.chatLog} websocket={this.ws}/>
+                <CreateMessage websocket={this.ws}/>
             </div>
         )
     }

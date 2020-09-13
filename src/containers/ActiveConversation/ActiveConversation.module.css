@@ -1,5 +1,7 @@
-.DrawerWrapper{
-    width:75%;
-    display:flex;
-    justify-content: center;
+.ActiveWrapper{
+    height:90vh;
+}
+
+.fullScreen{
+    height:100%;
 }

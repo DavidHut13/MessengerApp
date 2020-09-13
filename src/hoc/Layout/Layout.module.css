@@ -1,7 +1,6 @@
-.LayoutWrapper{
-    display:flex;
-    align-items: stretch;
-    box-sizing: border-box;
-    height:93.5vh;
+.Wrapper{
+    height:100vh;
+    
 }
+
 

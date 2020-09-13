@@ -41,8 +41,10 @@ class CreateMessage extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAddMessage:(message) => dispatch(actions.newMessage(message))
+        onAddMessage:(message) => dispatch(actions.newMessage(message)),
     }
 }
+
+
 
 export default connect(null,mapDispatchToProps)(CreateMessage);

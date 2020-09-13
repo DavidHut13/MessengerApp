@@ -5,7 +5,7 @@ class SideDrawer extends Component {
     render() {
         return (
             <div className={classes.DrawerWrapper}>
-
+                <h3>Chat Rooms</h3>
             </div>
         )
     }

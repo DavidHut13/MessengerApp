@@ -16,12 +16,12 @@ class Navigation extends Component {
         loginModal = <Modal/>
     }
       return (
-        <div >
+        <>
             <ul className={classes.NavWrapper}>
                 <li onClick={this.LoginModalHandler} className={classes.NavItem}>Login</li>
             </ul>
             {loginModal}
-        </div>
+        </>
     );
   }  
 } 
