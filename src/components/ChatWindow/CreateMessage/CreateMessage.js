@@ -30,8 +30,19 @@ class CreateMessage extends Component {
     return (
         <div className={classes.CreateMessageWrapper} >
             <form className={classes.formWrapper}>
-                <input className={classes.inputMessage} placeholder="Type a message..." type="text" value={this.state.message} onChange={(event) => this.inputChangeHandler(event)}></input>
-                <button className={classes.sendMsgBtn} onClick={(event) => this.onSendMessageHandler(event)}>Submit</button>
+                <input 
+                className={classes.inputMessage} 
+                placeholder="Type a message..." 
+                type="text" 
+                value={this.state.message} 
+                onChange={(event) => this.inputChangeHandler(event)}
+                onKeyPress={event => {
+                    if(event.key === 'Enter'){
+                        this.onSendMessageHandler(event)
+                    }
+                }}
+                ></input>
+                {/* <button className={classes.sendMsgBtn} onClick={(event) => this.onSendMessageHandler(event)}>Send</button> */}
             </form> 
         </div>
     )

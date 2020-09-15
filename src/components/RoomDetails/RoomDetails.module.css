@@ -1,0 +1,17 @@
+.Wrapper{
+    border: 1px solid rgb(219, 219, 219);
+    border-radius:5px;
+    height:100%;
+}
+
+.Header {
+    padding:8px;
+    color:rgb(219, 219, 219);
+    margin-bottom:25px;
+    
+}
+.Connected{
+    padding:8px;
+    display:inline;
+    color:rgb(219, 219, 219);
+}
