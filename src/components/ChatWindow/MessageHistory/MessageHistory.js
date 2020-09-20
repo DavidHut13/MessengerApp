@@ -20,7 +20,7 @@ class MessageHistory extends Component {
 
 const mapStateToProps = state => {
    return {
-    message: state.message
+    message: state.message.message
    }
 }
 

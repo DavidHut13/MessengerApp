@@ -1,0 +1,39 @@
+
+.ModalsignInWrapper {
+    padding:25px;
+    text-align: center;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+.InputField {
+    display: block;
+    width:80%;
+    height:30px;
+    border-radius:5px;
+    padding:8px;
+    background-color:rgb(219, 219, 219);
+    border:none;
+    margin:15px;
+}
+.InputField:focus{
+    -webkit-box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.5);
+    box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.5);  
+}
+.LoginBtn, .RegisterBtn {
+    background-color: white;
+    border:none;
+    padding: 5px 15px 5px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.LoginBtn:hover, .RegisterBtn:hover {
+    background-color: blueviolet;
+    color:white;
+}
+

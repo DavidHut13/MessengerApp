@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import classes from './CreateMessage.module.css'
-import * as actions from '../../../store/actions'
+import * as actions from '../../../store/actions/message'
 import { connect } from 'react-redux'
 
 class CreateMessage extends Component {

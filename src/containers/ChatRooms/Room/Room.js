@@ -7,13 +7,13 @@ class Room extends Component{
        let icon = null
        switch(this.props.icon){
            case "lobby": 
-                icon = <i class="fas fa-home"></i>
+                icon = <i className="fas fa-home"></i>
                 break;
            case "add": 
-                icon = <i class="fas fa-plus"></i>
+                icon = <i className="fas fa-plus"></i>
                 break;
            case "robot": 
-                icon = <i class="fas fa-robot"></i>
+                icon = <i className="fas fa-robot"></i>
                 break;
             default:  icon = <i class="fas fa-home"></i>
        }

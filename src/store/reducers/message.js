@@ -5,7 +5,7 @@ const initialState = {
     showModal: false
 }
 
-const reducer = (state = initialState, action) => {
+const messageReducer = (state = initialState, action) => {
     switch ( action.type ) {
         case actionTypes.NEW_MESSAGE:
             return { 
@@ -29,4 +29,4 @@ const reducer = (state = initialState, action) => {
             return state;
     }
 }
-export default reducer;
+export default messageReducer ;

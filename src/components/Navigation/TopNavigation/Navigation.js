@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import classes from './Navigation.module.css'
 import Modal from '../../Modal/Modal'
+import LoginUser from '../../Authentication/LoginUser/LoginUser'
+import RegisterUser from '../../Authentication/RegisterUser/RegisterUser'
+import {connect} from 'react-redux'
+import * as actions from '../../../store/actions/index'
 
 class Navigation extends Component {
     state = {
@@ -8,22 +12,41 @@ class Navigation extends Component {
     }
     LoginModalHandler = () => {
         this.setState({showModal: !this.state.showModal})
+        this.props.onSignUp()
     }
     
   render () {
-    let loginModal = null
-    if (this.state.showModal){
-        loginModal = <Modal/>
+
+    let content = null
+    if (this.props.registerUser){
+        content = <RegisterUser/>
+    }
+    else {
+        content = <LoginUser/>
     }
       return (
         <>
             <ul className={classes.NavWrapper}>
                 <li onClick={this.LoginModalHandler} className={classes.NavItem}>Login</li>
             </ul>
-            {loginModal}
+            <Modal show={this.state.showModal}>
+              {content}
+            </Modal>
         </>
     );
   }  
-} 
+}
 
-export default Navigation;
+const mapStateToProps = state => {
+  return {
+    registerUser: state.auth.registerUser
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onSignUp:() => dispatch(actions.signInUser())
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Navigation);

@@ -4,9 +4,7 @@ import Room from './Room/Room'
 
 
 class SideDrawer extends Component {
-    state={
-        newRoom: "+"
-    }
+
     render() {
         return (
             <div className={classes.DrawerWrapper}>

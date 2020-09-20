@@ -29,7 +29,7 @@ class Layout extends Component {
 }
 const mapStateToProps = state => {
     return {
-        showModal: state.showLoginModal
+        showModal: state.message.showLoginModal
     }
 }
 

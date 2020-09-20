@@ -3,14 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore} from 'redux'
-import reducer from './store/reducers/reducer'
+import { createStore, applyMiddleware, compose,  combineReducers} from 'redux'
+import messageReducer from './store/reducers/message'
+import authReducer from './store/reducers/auth'
 import { Provider } from 'react-redux'
-
+import thunk from 'redux-thunk'
 // Importing the Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const store = createStore(reducer);
+
+const rootReducer = combineReducers({
+  message: messageReducer,
+  auth: authReducer
+})
+const composeEnhancers = process.env.NODE_ENV ==='development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__: null || compose;
+const store = createStore(rootReducer,composeEnhancers(
+  applyMiddleware(thunk)
+));
 
 ReactDOM.render(
   <React.StrictMode>
