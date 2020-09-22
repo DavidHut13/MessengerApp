@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import classes from './Navigation.module.css'
-import Modal from '../../Modal/Modal'
+import Modal from '../../UI/Modal/Modal'
 import LoginUser from '../../Authentication/LoginUser/LoginUser'
 import RegisterUser from '../../Authentication/RegisterUser/RegisterUser'
 import {connect} from 'react-redux'
@@ -29,7 +29,7 @@ class Navigation extends Component {
             <ul className={classes.NavWrapper}>
                 <li onClick={this.LoginModalHandler} className={classes.NavItem}>Login</li>
             </ul>
-            <Modal show={this.state.showModal}>
+            <Modal show={this.state.showModal} closeModal={this.LoginModalHandler}>
               {content}
             </Modal>
         </>

@@ -25,18 +25,36 @@ class Modal extends Component {
         if(input === 'password'){
             this.setState({password: event.target.value})
         }
+        if(input === 'userName'){
+            this.setState({userName: event.target.value})
+        }
     }
     render() {
         return (
             <div className={classes.Modal}>
                 <form className={classes.ModalsignInWrapper}>
-                    <input className={classes.InputField} value={this.state.email} onChange={(event) => this.onInputChangeHandler(event,'email')} placeholder="Email..."></input>
-                    <input  className={classes.InputField} placeholder="User Name" value={this.state.userName}></input>
-                    <input type="password" className={classes.InputField} value={this.state.password} onChange={(event) => this.onInputChangeHandler(event,'password')}  placeholder="Password..."></input>
-                    <button onClick={this.onAuthUserHandler} className={classes.LoginBtn}>Sign Up</button>
-                    <hr></hr>
-                    <p>or</p>
-                    <button onClick={this.onSignInHandler} className={classes.LoginBtn}>Login</button>
+                    <h2>Sign up.</h2>
+                    <label className={classes.label}>
+                        Email:
+                        <input className={classes.InputField} value={this.state.email} onChange={(event) => this.onInputChangeHandler(event,'email')}></input>
+                    </label>
+                    <label className={classes.label}>
+                        User Name:
+                        <input  className={classes.InputField} value={this.state.userName} onChange={(event) => this.onInputChangeHandler(event,'userName')}></input>
+                    </label>
+                    <label className={classes.label}>
+                        Password:
+                        <input type="password" className={classes.InputField} value={this.state.password} onChange={(event) => this.onInputChangeHandler(event,'password')}></input>
+                    </label>
+                   
+                   
+                    
+                    <button onClick={this.onAuthUserHandler} className={classes.RegisterBtn}>Sign Up</button>
+                    <div className={classes.LineBreak}>OR</div>
+                    <div className={classes.Center}>
+                        <button onClick={this.onSignInHandler} className={classes.LoginBtn}>Login</button>
+                    </div>
+                    
                 </form>
             </div>
         )

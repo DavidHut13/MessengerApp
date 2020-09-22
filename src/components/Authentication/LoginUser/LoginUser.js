@@ -29,12 +29,24 @@ class Modal extends Component {
         return (
             <div className={classes.Modal}>
                 <form className={classes.ModalsignInWrapper}>
-                    <input className={classes.InputField} value={this.state.email} onChange={(event) => this.onInputChangeHandler(event,'email')} placeholder="Email..."></input>
-                    <input type="password" className={classes.InputField} value={this.state.password} onChange={(event) => this.onInputChangeHandler(event,'password')}  placeholder="Password..."></input>
+                    <h2 className={classes.LoginHeader}>Login.</h2>
+                    <label className={classes.label}>
+                        Email:
+                        <input className={classes.InputField} value={this.state.email} onChange={(event) => this.onInputChangeHandler(event,'email')}></input>
+                    </label>
+                    <label className={classes.label}>
+                        Password:
+                        <input type="password" className={classes.InputField} value={this.state.password} onChange={(event) => this.onInputChangeHandler(event,'password')}></input>
+                    </label>
+                    
+                    
+                    
                     <button onClick={this.onAuthUserHandler} className={classes.LoginBtn}>Login</button>
-                    <hr></hr>
-                    <p>or</p>
-                    <button className={classes.RegisterBtn} onClick={this.onRegisterHandler}>Create an Account</button> 
+                    <div className={classes.LineBreak}>OR</div>
+                    <div className={classes.Center}>
+                        <button className={classes.RegisterBtn} onClick={this.onRegisterHandler}>Sign up</button> 
+                    </div>
+
                 </form>
             </div>
         )

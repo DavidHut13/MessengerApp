@@ -1,0 +1,13 @@
+.Modal {
+    z-index: 1000;
+    position:fixed;
+    top:40%;
+    left:40%;
+    background-color:white;
+    border:thin solid rgb(204, 204, 204);
+    border-radius:5px;
+    -webkit-box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.35);
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.35);
+    padding:45px 45px 25px 45px;
+}

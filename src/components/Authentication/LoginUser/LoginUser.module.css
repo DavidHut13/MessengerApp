@@ -1,8 +1,6 @@
 
-.ModalsignInWrapper {
-    padding:25px;
-    text-align: center;
-}
+
+
 input:focus,
 select:focus,
 textarea:focus,
@@ -11,29 +9,68 @@ button:focus {
 }
 .InputField {
     display: block;
-    width:80%;
+    width:100%;
     height:30px;
     border-radius:5px;
-    padding:8px;
+    padding:10px;
     background-color:rgb(219, 219, 219);
     border:none;
-    margin:15px;
+    
 }
 .InputField:focus{
-    -webkit-box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.5);
-    -moz-box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.5);
-    box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.5);  
+    -webkit-box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.25);
+    box-shadow: inset 0px 0px 1px 0px rgba(0,0,0,0.25);  
+    background-color: rgb(211, 211, 211);
 }
 .LoginBtn, .RegisterBtn {
-    background-color: white;
     border:none;
     padding: 5px 15px 5px 15px;
     border-radius:5px;
     cursor:pointer;
 }
-
-.LoginBtn:hover, .RegisterBtn:hover {
+.LoginBtn {
     background-color: blueviolet;
+    width:100%;
     color:white;
+}
+.LoginBtn:hover {
+    background-color: rgb(194, 130, 255);
+}
+.RegisterBtn{
+    background-color: white;
+}
+
+
+.RegisterBtn:hover{
+    cursor:pointer;
+    color: blueviolet;
+}
+
+.label {
+    display:block;
+    margin:15px 0 15px 0;
+}
+.Center{
+    text-align:center
+}
+
+.LineBreak{
+    display:flex;
+    align-items: center;
+    text-align:center;
+    margin-top:45px;
+}
+
+.LineBreak::before,.LineBreak::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #000;
+}
+.LineBreak::before {
+    margin-right:.25em;
+}
+.LineBreak::after {
+    margin-left:.25em;
 }
 
