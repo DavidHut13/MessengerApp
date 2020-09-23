@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import classes from './Room.module.css'
-
+import { NavLink } from 'react-router-dom'
 
 class Room extends Component{
    render() {
@@ -19,11 +19,14 @@ class Room extends Component{
        }
 
        return (
-           <>
-                <div className={classes.circle}>
-                    {icon}
-                </div>
-           </>
+           <li className={classes.Room}>
+                <NavLink to={this.props.icon}  activeClassName={classes.active}>
+                    <div className={classes.Circle}>
+                        {icon}
+                    </div> 
+                </NavLink>  
+           </li>
+            
        )
    }
 }
