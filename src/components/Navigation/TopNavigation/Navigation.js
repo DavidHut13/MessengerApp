@@ -4,32 +4,36 @@ import Modal from '../../UI/Modal/Modal'
 import LoginUser from '../../Authentication/LoginUser/LoginUser'
 import RegisterUser from '../../Authentication/RegisterUser/RegisterUser'
 import {connect} from 'react-redux'
-import * as actions from '../../../store/actions/index'
 
 class Navigation extends Component {
     state = {
-        showModal: false
+        showModal: false,
+        registerUser: false
     }
     LoginModalHandler = () => {
         this.setState({showModal: !this.state.showModal})
-        this.props.onSignUp()
+        this.setState({registerUser: false})
+        console.log(this.state.registerUser)
     }
-    
+    registerUserHandler = (event) => {
+      event.preventDefault()
+      this.setState({registerUser: !this.state.registerUser})
+    }
   render () {
 
     let content = null
-    if (this.props.registerUser){
-        content = <RegisterUser/>
+    if (this.state.registerUser){
+        content = <RegisterUser registerUserHandler={this.registerUserHandler}/>
     }
-    else {
-        content = <LoginUser/>
+    if (!this.state.registerUser){
+        content = <LoginUser registerUserHandler={this.registerUserHandler}/>
     }
       return (
         <>
             <ul className={classes.NavWrapper}>
                 <li onClick={this.LoginModalHandler} className={classes.NavItem}>Login</li>
             </ul>
-            <Modal show={this.state.showModal} closeModal={this.LoginModalHandler}>
+            <Modal showModal={this.state.showModal}  LoginModalHandler={this.LoginModalHandler}>
               {content}
             </Modal>
         </>
@@ -43,10 +47,5 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onSignUp:() => dispatch(actions.signInUser())
-  }
-}
 
-export default connect(mapStateToProps,mapDispatchToProps)(Navigation);
+export default connect(mapStateToProps)(Navigation);

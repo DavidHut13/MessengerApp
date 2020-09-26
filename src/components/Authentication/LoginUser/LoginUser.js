@@ -7,15 +7,15 @@ class Modal extends Component {
     state = {
         email: '',
         password: '',
-        isRegistered: false
+        isRegistered: false,
+        error: ''
     }
-    onAuthUserHandler = (event) => {
+    ValidateInput = () => {
+
+    } 
+    loginUserHandler = (event) => {
         event.preventDefault()
-        this.props.authUser(this.state.email,this.state.password,this.state.isRegistered)
-    }
-    onRegisterHandler = (event) => {
-        event.preventDefault()
-        this.props.onRegisterUser()
+        this.props.loginUser(this.state.email,this.state.password,this.state.isRegistered)
     }
     onInputChangeHandler = (event,input) => {
         if(input === 'email'){
@@ -26,6 +26,14 @@ class Modal extends Component {
         }
     }
     render() {
+        let errorMessage = null
+        if(this.props.error){
+            errorMessage = (
+                <p>
+                    {this.props.error.message}
+                </p>
+            )
+        }
         return (
             <div className={classes.Modal}>
                 <form className={classes.ModalsignInWrapper}>
@@ -38,15 +46,12 @@ class Modal extends Component {
                         Password:
                         <input type="password" className={classes.InputField} value={this.state.password} onChange={(event) => this.onInputChangeHandler(event,'password')}></input>
                     </label>
-                    
-                    
-                    
-                    <button onClick={this.onAuthUserHandler} className={classes.LoginBtn}>Login</button>
+                    <button onClick={this.loginUserHandler} className={classes.LoginBtn}>Login</button>
+                    <div className={classes.errorMsg}>{errorMessage}</div>
                     <div className={classes.LineBreak}>OR</div>
                     <div className={classes.Center}>
-                        <button className={classes.RegisterBtn} onClick={this.onRegisterHandler}>Sign up</button> 
+                        <button className={classes.RegisterBtn} onClick={this.props.registerUserHandler}>Sign up</button> 
                     </div>
-
                 </form>
             </div>
         )
@@ -55,9 +60,14 @@ class Modal extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        authUser:(email,password,isRegistered) => dispatch(actions.auth(email,password,isRegistered)),
-        onRegisterUser:() => dispatch(actions.registerUser())
+        loginUser:(email,password,isRegistered) => dispatch(actions.loginUser(email,password,isRegistered)),
     }
 }
 
-export default connect(null,mapDispatchToProps)(Modal);
+const mapStateToProps = state => {
+    return {
+        error: state.auth.error
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Modal);

@@ -4,7 +4,7 @@ import MessageHistory from './MessageHistory/MessageHistory'
 import CreateMessage from './CreateMessage/CreateMessage'
 
 class Messages extends Component {
-    ws = new WebSocket('ws://localhost:5050')
+    ws = new WebSocket('ws://localhost:5050/ws')
     
     state = {
         chatLog: []

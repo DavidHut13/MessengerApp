@@ -1,2 +1,2 @@
-export { auth,authLogout, signInUser,registerUser } from './auth'
+export { loginUser,registerUser,authLogout } from './auth'
 export { newMessage, toggleModal} from './message'

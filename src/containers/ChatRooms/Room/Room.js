@@ -1,30 +1,60 @@
 import React, { Component } from 'react'
 import classes from './Room.module.css'
 import { NavLink } from 'react-router-dom'
+import axios from 'axios'
 
 class Room extends Component{
+    addServer = () => {
+        axios.get('http://localhost:5000/addServer')
+        .then(response => {
+            console.log(response)
+        })
+        .catch(error => {
+            console.log(error)
+        });
+    }
    render() {
-       let icon = null
+       let Room = null
        switch(this.props.icon){
            case "lobby": 
-                icon = <i className="fas fa-home"></i>
+                Room = ( 
+                    <NavLink to={this.props.icon}  activeClassName={classes.active}>
+                        <div className={classes.Circle}>
+                            <i className="fas fa-home"></i>
+                        </div> 
+                    </NavLink>  
+                )
                 break;
-           case "add": 
-                icon = <i className="fas fa-plus"></i>
+           case "add":
+                Room = (
+                    <NavLink to={this.props.icon} onClick={this.addServer}  activeClassName={classes.active}>
+                        <div className={classes.Circle}>
+                        <i className="fas fa-plus"></i>
+                        </div> 
+                    </NavLink>  
+                ) 
                 break;
            case "robot": 
-                icon = <i className="fas fa-robot"></i>
+                Room =(
+                    <NavLink to={this.props.icon}  activeClassName={classes.active}>
+                        <div className={classes.Circle}>
+                            <i className="fas fa-robot"></i>
+                        </div> 
+                    </NavLink>  
+                ) 
                 break;
-            default:  icon = <i class="fas fa-home"></i>
+            default:  Room = (
+                <NavLink to={this.props.icon}  activeClassName={classes.active}>
+                    <div className={classes.Circle}>
+                        <i class="fas fa-home"></i>
+                    </div> 
+                </NavLink> 
+            ) 
        }
 
        return (
            <li className={classes.Room}>
-                <NavLink to={this.props.icon}  activeClassName={classes.active}>
-                    <div className={classes.Circle}>
-                        {icon}
-                    </div> 
-                </NavLink>  
+            {Room}
            </li>
             
        )

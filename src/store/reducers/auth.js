@@ -50,18 +50,6 @@ const authLougout = (state,action) => {
     }
 }
 
-const registerUser = (state,action) => {
-    return {
-        ...state,
-        registerUser:true
-    }
-}
-const signInUser = (state,action) => {
-    return {
-        ...state,
-        registerUser:false,
-    }
-}
 
 
 const authReducer = (state = initialState, action) => {
@@ -70,8 +58,6 @@ const authReducer = (state = initialState, action) => {
         case actionTypes.AUTH_FAIL : return authFail(state,action)
         case actionTypes.AUTH_SUCCESS : return authSuccess(state,action)
         case actionTypes.AUTH_LOGOUT : return authLougout(state,action)
-        case actionTypes.REGISTER_USER : return registerUser(state,action)
-        case actionTypes.SIGNIN_USER : return signInUser(state,action)
         default: return state
 
     }

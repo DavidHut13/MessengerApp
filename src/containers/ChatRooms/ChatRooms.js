@@ -11,7 +11,7 @@ class SideDrawer extends Component {
                 <ul className={classes.Rooms}> 
                         <Room icon={"lobby"} />
                         <Room icon={"robot"} />
-                        <Room icon={"add"} />
+                        <Room onClick={this.addServer} icon={"add"} />
                 </ul>
             </div>
         )

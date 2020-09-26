@@ -7,7 +7,7 @@ export const authStart = () => {
     }
 }
 
-export const auth = (email,password,isRegistered) => {
+export const loginUser = (email,password,isRegistered) => {
     return dispatch => {
         dispatch(authStart())
         const authData = {
@@ -15,11 +15,7 @@ export const auth = (email,password,isRegistered) => {
             password: password,
             returnSecureToken: true
         }
-        
-        let url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + process.env.REACT_APP_API_KEY
-        if (isRegistered){
-            url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + process.env.REACT_APP_API_KEY
-        }
+        let url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + process.env.REACT_APP_API_KEY
         axios.post(url,authData)
         .then(response => {
             console.log(response)
@@ -31,6 +27,24 @@ export const auth = (email,password,isRegistered) => {
         }) 
 
     } 
+}
+export const registerUser = (email,password,isRegistered) => {
+    return dispatch => {
+        const authData = {
+            email: email,
+            password: password,
+            returnSecureToken: true
+        }
+        let url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + process.env.REACT_APP_API_KEY
+        axios.post(url,authData)
+        .then(response => {
+            console.log(response)
+            dispatch(authSuccess())
+        })
+        .catch(error => {
+            dispatch(authFail(error.response.data.error))
+        }) 
+    }
 }
 
 export const authSuccess = (token,userId) => {
@@ -54,17 +68,5 @@ export const authLogout = () => {
     localStorage.removeItem('userId')
     return {
         type: actionTypes.AUTH_LOGOUT
-    }
-}
-
-export const registerUser = () => {
-    return {
-        type: actionTypes.REGISTER_USER
-    }
-}
-
-export const signInUser = () => {
-    return {
-        type: actionTypes.SIGNIN_USER
     }
 }

@@ -9,11 +9,6 @@ class Modal extends Component {
         password: '',
         userName: ''
     }
-    onSignInHandler = (event) => {
-        event.preventDefault()
-        this.props.onSignIn()
-      
-    }
     onAuthUserHandler = (event) => {
         event.preventDefault()
         this.props.authUser(this.state.email,this.state.password,this.state.isRegistered)
@@ -46,15 +41,11 @@ class Modal extends Component {
                         Password:
                         <input type="password" className={classes.InputField} value={this.state.password} onChange={(event) => this.onInputChangeHandler(event,'password')}></input>
                     </label>
-                   
-                   
-                    
                     <button onClick={this.onAuthUserHandler} className={classes.RegisterBtn}>Sign Up</button>
                     <div className={classes.LineBreak}>OR</div>
                     <div className={classes.Center}>
-                        <button onClick={this.onSignInHandler} className={classes.LoginBtn}>Login</button>
-                    </div>
-                    
+                        <button onClick={this.props.registerUserHandler} className={classes.LoginBtn}>Login</button>
+                    </div> 
                 </form>
             </div>
         )
@@ -63,8 +54,7 @@ class Modal extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        authUser:(email,password,isRegistered) => dispatch(actions.auth(email,password,isRegistered)),
-        onSignIn:() => dispatch(actions.signInUser())
+        registerUser:(email,password,isRegistered) => dispatch(actions.registerUser(email,password,isRegistered)),
     }
 }
 

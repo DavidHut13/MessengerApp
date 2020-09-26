@@ -59,7 +59,7 @@ button:focus {
     display:flex;
     align-items: center;
     text-align:center;
-    margin-top:45px;
+    margin-top:30px;
 }
 
 .LineBreak::before,.LineBreak::after {
@@ -73,4 +73,8 @@ button:focus {
 .LineBreak::after {
     margin-left:.25em;
 }
-
+.errorMsg{
+    margin-top:10px;
+    text-align: center;
+    color:rgb(235, 66, 66);
+}

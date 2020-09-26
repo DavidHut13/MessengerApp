@@ -12,7 +12,7 @@ class CreateMessage extends Component {
         this.setState({message: event.target.value})
         
     }
-    onSendMessageHandler(event){
+    onSendMessageHandler = (event) => {
         event.preventDefault()
         if(this.state.message) {
             this.props.onAddMessage(this.state.message)
