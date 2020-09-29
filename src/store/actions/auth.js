@@ -1,5 +1,7 @@
 import * as actionTypes from '../actionTypes'
 import axios from 'axios'
+import * as firebase from 'firebase';
+import {auth} from '../../components/Firebase/init'
 
 export const authStart = () => {
     return {
@@ -39,6 +41,8 @@ export const registerUser = (email,password,isRegistered) => {
         axios.post(url,authData)
         .then(response => {
             console.log(response)
+            // Save login Info to local storage
+            // pass idToken + photoId to authSuccess
             dispatch(authSuccess())
         })
         .catch(error => {
@@ -46,7 +50,20 @@ export const registerUser = (email,password,isRegistered) => {
         }) 
     }
 }
-
+export const signInWithGoogle = () => {
+    return dispatch => {
+        dispatch(authStart())
+        let provider = new firebase.auth.GoogleAuthProvider()
+        auth.signInWithPopup(provider)
+        .then(response => {
+            console.log(response)
+            dispatch(authSuccess())
+        }) 
+        .catch(error => {
+            dispatch(authFail(error.response.data.error))
+        }) 
+    }
+}
 export const authSuccess = (token,userId) => {
     return {
         type:actionTypes.AUTH_SUCCESS,

@@ -21,7 +21,7 @@ class Messages extends Component {
         this.ws.onmessage = (event) => {
             // console.log(event.data)
             var jsonObj = JSON.parse(event.data)
-            console.log(jsonObj)
+            // console.log(jsonObj)
             this.setState({chatLog: [...this.state.chatLog, jsonObj] })
         }
     }

@@ -34,7 +34,7 @@ class Modal extends Component {
                         <input className={classes.InputField} value={this.state.email} onChange={(event) => this.onInputChangeHandler(event,'email')}></input>
                     </label>
                     <label className={classes.label}>
-                        User Name:
+                        Username:
                         <input  className={classes.InputField} value={this.state.userName} onChange={(event) => this.onInputChangeHandler(event,'userName')}></input>
                     </label>
                     <label className={classes.label}>

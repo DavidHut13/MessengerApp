@@ -1,8 +1,9 @@
 .Modal {
     z-index: 1000;
-    position:fixed;
-    top:40%;
-    left:40%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color:white;
     border:thin solid rgb(204, 204, 204);
     border-radius:5px;

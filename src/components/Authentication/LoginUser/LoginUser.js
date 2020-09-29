@@ -2,21 +2,23 @@ import React, { Component } from 'react'
 import classes from './LoginUser.module.css'
 import { connect } from 'react-redux'
 import * as actions from '../../../store/actions/index'
-
+import GoogleBtn from '../../UI/GoogleBtn/GoogleBtn'
 class Modal extends Component {
+
     state = {
         email: '',
         password: '',
         isRegistered: false,
-        error: ''
+        error: '',
     }
     ValidateInput = () => {
 
     } 
-    loginUserHandler = (event) => {
+    emailLoginHandler = (event) => {
         event.preventDefault()
         this.props.loginUser(this.state.email,this.state.password,this.state.isRegistered)
     }
+
     onInputChangeHandler = (event,input) => {
         if(input === 'email'){
             this.setState({email: event.target.value})
@@ -35,6 +37,7 @@ class Modal extends Component {
             )
         }
         return (
+           
             <div className={classes.Modal}>
                 <form className={classes.ModalsignInWrapper}>
                     <h2 className={classes.LoginHeader}>Login.</h2>
@@ -46,7 +49,10 @@ class Modal extends Component {
                         Password:
                         <input type="password" className={classes.InputField} value={this.state.password} onChange={(event) => this.onInputChangeHandler(event,'password')}></input>
                     </label>
-                    <button onClick={this.loginUserHandler} className={classes.LoginBtn}>Login</button>
+                    <div className={classes.BtnWrapper}>
+                        <button onClick={this.emailLoginHandler} className={classes.LoginBtn}>Login</button>
+                        <GoogleBtn/>
+                    </div>
                     <div className={classes.errorMsg}>{errorMessage}</div>
                     <div className={classes.LineBreak}>OR</div>
                     <div className={classes.Center}>

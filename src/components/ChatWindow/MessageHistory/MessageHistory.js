@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import classes from './MessageHistory.module.css'
 import { connect } from 'react-redux'
-
+import Message from '../Message/Message'
 
 class MessageHistory extends Component {
    render() {
        const messageHist = this.props.messageHistory.map( msg => (
-        <div key={msg.id}>
-            <p className={classes.MessageBubble} >{msg.message}</p>
-        </div>
+        <Message sender={msg.sender} messageId={msg.id} message={msg.message}/>
        ))
     return (
         <div className={classes.MessageHistoryWrapper}>

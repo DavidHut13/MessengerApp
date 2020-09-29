@@ -41,6 +41,16 @@ const authFail = (state,action) => {
     }
 }
 
+const signinWithGoogle = (state,action) => {
+    return {
+        ...state,
+        userId: action.idToken,
+        token: action.accessToken,
+        photoId: action.user.photoURL,
+        name: action.additionalUserInfo.profile.given_name
+    }
+}
+
 const authLougout = (state,action) => {
     return {
         ...state,
@@ -58,6 +68,7 @@ const authReducer = (state = initialState, action) => {
         case actionTypes.AUTH_FAIL : return authFail(state,action)
         case actionTypes.AUTH_SUCCESS : return authSuccess(state,action)
         case actionTypes.AUTH_LOGOUT : return authLougout(state,action)
+        case actionTypes.SIGNIN_WITH_GOOGLE : return signinWithGoogle(state,action)
         default: return state
 
     }
