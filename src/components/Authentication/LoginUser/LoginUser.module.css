@@ -34,7 +34,7 @@ button:focus {
 }
 .LoginBtn {
     background-color: blueviolet;
-    width:70%;
+    width:100%;
     color:white;
     
 }
@@ -81,4 +81,8 @@ button:focus {
     margin-top:10px;
     text-align: center;
     color:rgb(235, 66, 66);
+}
+
+.red{
+    color:red;
 }

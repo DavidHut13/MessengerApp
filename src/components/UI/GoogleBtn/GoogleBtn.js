@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import classes from './GoogleBtn.module.css'
-import * as firebase from 'firebase';
-import {auth} from '../../Firebase/init'
 import {connect} from 'react-redux'
 import * as actions from '../../../store/actions/index'
 

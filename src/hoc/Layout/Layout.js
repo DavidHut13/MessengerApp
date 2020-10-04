@@ -11,7 +11,7 @@ class Layout extends Component {
         return(
             <Container className={classes.Wrapper} fluid="lg">
                 <Row>
-                    <Col xs={12} >
+                    <Col xs={12}>
                         <Navigation/>
                     </Col>
                 </Row>

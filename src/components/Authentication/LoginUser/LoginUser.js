@@ -40,7 +40,7 @@ class Modal extends Component {
            
             <div className={classes.Modal}>
                 <form className={classes.ModalsignInWrapper}>
-                    <h2 className={classes.LoginHeader}>Login.</h2>
+                    <h2 className={[classes.LoginHeader, "red"].join(' ')}>Login.</h2>
                     <label className={classes.label}>
                         Email:
                         <input className={classes.InputField} value={this.state.email} onChange={(event) => this.onInputChangeHandler(event,'email')}></input>
@@ -63,6 +63,8 @@ class Modal extends Component {
         )
     }
 }
+
+
 
 const mapDispatchToProps = dispatch => {
     return {

@@ -4,6 +4,8 @@ import Modal from '../../UI/Modal/Modal'
 import LoginUser from '../../Authentication/LoginUser/LoginUser'
 import RegisterUser from '../../Authentication/RegisterUser/RegisterUser'
 import {connect} from 'react-redux'
+import Transition from 'react-transition-group/Transition'
+import Backdrop from '../../UI/Backdrop/Backdrop'
 
 class Navigation extends Component {
     state = {
@@ -33,9 +35,14 @@ class Navigation extends Component {
             <ul className={classes.NavWrapper}>
                 <li onClick={this.LoginModalHandler} className={classes.NavItem}>Login</li>
             </ul>
-            <Modal showModal={this.state.showModal}  LoginModalHandler={this.LoginModalHandler}>
-              {content}
-            </Modal>
+              <Transition mountOnEnter unmountOnExit in={this.state.showModal} timeout={300}>
+                {state => (
+                    <Modal showModal={state}>
+                      {content}
+                    </Modal>
+                )}
+              </Transition>
+              <Backdrop showModal={this.state.showModal}  LoginModalHandler={this.LoginModalHandler}/>
         </>
     );
   }  
