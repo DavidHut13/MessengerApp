@@ -1,6 +1,6 @@
 import React  from 'react'
 import classes from './Modal.module.css'
-
+import Backdrop from '../../UI/Backdrop/Backdrop'
 
 
 
@@ -11,9 +11,10 @@ const Modal = (props) => {
         props.showModal === 'exiting' ? classes.ModalClosed: null]
     return (
         <>
-            <div className={cssClasses.join(' ')}>
-                {props.children}
-            </div>
+            <Backdrop showModal={props.modalOpen}  LoginModalHandler={props.LoginModalHandler}></Backdrop>
+                <div className={cssClasses.join(' ')}>
+                    {props.children}
+                </div>
         </>
     )     
 }

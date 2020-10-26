@@ -37,7 +37,6 @@ class Modal extends Component {
             )
         }
         return (
-           
             <div className={classes.Modal}>
                 <form className={classes.ModalsignInWrapper}>
                     <h2 className={[classes.LoginHeader, "red"].join(' ')}>Login.</h2>

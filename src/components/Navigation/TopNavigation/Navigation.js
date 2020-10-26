@@ -5,7 +5,8 @@ import LoginUser from '../../Authentication/LoginUser/LoginUser'
 import RegisterUser from '../../Authentication/RegisterUser/RegisterUser'
 import {connect} from 'react-redux'
 import Transition from 'react-transition-group/Transition'
-import Backdrop from '../../UI/Backdrop/Backdrop'
+import Dropdown from 'react-bootstrap/Dropdown'
+
 
 class Navigation extends Component {
     state = {
@@ -32,17 +33,26 @@ class Navigation extends Component {
     }
       return (
         <>
-            <ul className={classes.NavWrapper}>
-                <li onClick={this.LoginModalHandler} className={classes.NavItem}>Login</li>
-            </ul>
-              <Transition mountOnEnter unmountOnExit in={this.state.showModal} timeout={300}>
-                {state => (
-                    <Modal showModal={state}>
-                      {content}
-                    </Modal>
-                )}
-              </Transition>
-              <Backdrop showModal={this.state.showModal}  LoginModalHandler={this.LoginModalHandler}/>
+          <div className={classes.NavWrapper}>
+            <Dropdown >
+              <Dropdown.Toggle className={[classes.NavItem, 'my-3'].join(' ')}  variant="none">
+                Account
+              </Dropdown.Toggle>
+              <Dropdown.Menu >
+                <Dropdown.Item onClick={this.LoginModalHandler} href="#/action-1">Login</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Resigister</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Account</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
+        
+          <Transition mountOnEnter unmountOnExit in={this.state.showModal} timeout={300}>
+            {state => (
+                <Modal showModal={state} LoginModalHandler={this.LoginModalHandler} modalOpen={this.state.showModal}>
+                  {content}
+                </Modal>
+            )}
+          </Transition>
         </>
     );
   }  

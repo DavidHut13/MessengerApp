@@ -5,15 +5,16 @@
     margin-top:10px;
 }
 
-.NavItem{
+.NavItem {
     margin-right:25px;
     padding:5px 15px 5px 15px;
     border-radius:3px;
     text-decoration: none;
     list-style-type: none;
-    color:rgb(219, 219, 219);
+    color:rgb(219, 219, 219) !important;
     font-weight:bold;
     cursor:pointer;
+  
 }
 
 .NavItem:hover{
